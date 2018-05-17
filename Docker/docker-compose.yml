@@ -1,0 +1,76 @@
+version: '3.6'
+
+services:
+  rabitmq:
+    container_name: nwd_rabbitmq
+    image: "rabbitmq:3-management"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - nwdDevNetwork
+
+  redis:
+    container_name: nwd_redis
+    image: "redis:alpine"
+    ports: 
+      - "6379:6379"
+    networks:
+      - nwdDevNetwork
+
+  mssql:
+    container_name: nwd_mssql
+    image: "microsoft/mssql-server-linux"
+    ports: 
+    - "1433:1433"
+    environment:
+      SA_PASSWORD: "12qwaszx@@34"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    healthcheck:
+      test: sqlcmd -S localhost -U SA -P '12qwaszx@@34' -Q 'select 1'
+    networks:
+      - nwdDevNetwork
+
+  mongo:
+    image: mongo
+    container_name: nwd_mongo
+    ports:
+      - "8081:8081"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12qwaszx
+    networks:
+      - nwdDevNetwork
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    container_name: nwd_esearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - nwdDevNetwork
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://elasticsearch:9200"]
+        interval: 10s
+        timeout: 5s
+        retries: 10
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.2.4
+    container_name: nwd_kibana
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://nwd_esearch:9200
+    networks:
+      - nwdDevNetwork
+    depends_on:
+      - elasticsearch
+
+networks:
+  nwdDevNetwork:
+    driver: bridge
