@@ -1,19 +1,23 @@
-﻿using BuildingBlock.IntegrationEventLog;
+﻿using BackOffice.Sales.Data.Contexts;
+using BackOffice.Sales.Mappings;
+using BackOffice.Sales.Middlewares;
+using BackOffice.Sales.Runtimes;
+using BackOffice.Sales.Services;
+using BuildingBlock.IntegrationEventLog;
 using BuildingBlock.IntegrationEventLog.Services;
 using MassTransit;
 using MassTransit.Util;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BackOffice.Sales.Middlewares;
-using BackOffice.Sales.Runtimes;
-using BackOffice.Sales.Data.Contexts;
-using BackOffice.Sales.Mappings;
-using BackOffice.Sales.Services;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -45,10 +49,21 @@ namespace BackOffice.Sales
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            bool IsIntegratedTest() => Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "IntegrationTest";
+            // Azure Active Directory Authentication
+            services.AddAuthentication(sharedOptions =>
+            {
+                sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 
             // MVC
-            services.AddMvc();
+            services.AddMvc(setup =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+                setup.Filters.Add(new AuthorizeFilter(policy));
+            });
 
             // Compression
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
@@ -107,6 +122,8 @@ namespace BackOffice.Sales
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseAuthentication();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

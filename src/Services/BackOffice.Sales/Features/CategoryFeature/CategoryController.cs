@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using BackOffice.Sales.Data.Contexts;
 using BackOffice.Sales.Data.Entities;
-using BackOffice.Sales.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace BackOffice.Sales.Controllers
+namespace BackOffice.Sales.Features.CategoryFeature
 {
-    [Route("v1/[controller]")]
+    [Route("v1/categories")]
     public class CategoryController : ControllerBase
     {
         private readonly SalesDbContext _context;

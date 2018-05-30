@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Commerce.Catalogs.Controllers
 {
-    [Route("v1/[controller]")]
+    [Route("v1/products")]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
@@ -25,7 +25,7 @@ namespace Commerce.Catalogs.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("featured")]
         public async Task<IActionResult> GetFeatured(int page, int pageSize, string orderBy, bool ascending)
         {
             return Ok(await _productRepository.GetFeaturedAsync(page, pageSize, orderBy, ascending));

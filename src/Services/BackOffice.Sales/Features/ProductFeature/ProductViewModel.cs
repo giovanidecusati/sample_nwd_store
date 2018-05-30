@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BackOffice.Sales.Models
+namespace BackOffice.Sales.Features.ProductFeature
 {
     public class ProductViewModel 
     {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Data.Common;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BackOffice.Sales.Services
@@ -30,14 +31,14 @@ namespace BackOffice.Sales.Services
             _eventLogService = _integrationEventLogServiceFactory(salesContext.Database.GetDbConnection());
         }
 
-        public async Task PublishThroughEventBusAsync(ProductCreatedIntegrationEvent @event)
+        public async Task PublishThroughEventBusAsync(ProductCreatedIntegrationEvent @event, CancellationToken cancellationToken = default(CancellationToken))
         {
-            await _eventBus.Publish(@event);
+            await _eventBus.Publish(@event, cancellationToken);
 
-            await _eventLogService.MarkEventAsPublishedAsync(@event);
+            await _eventLogService.MarkEventAsPublishedAsync(@event, cancellationToken);
         }
 
-        public async Task SaveEventAndProductContextChangesAsync(IntegrationEvent @event)
+        public async Task SaveEventAndProductContextChangesAsync(IntegrationEvent @event, CancellationToken cancellationToken = default(CancellationToken))
         {
             //Use of an EF Core resiliency strategy when using multiple DbContexts within an explicit BeginTransaction():
             //See: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency            
@@ -45,7 +46,7 @@ namespace BackOffice.Sales.Services
                 .ExecuteAsync(async () =>
                 {
                     // Achieving atomicity between original catalog database operation and the IntegrationEventLog thanks to a local transaction
-                    await _salesContext.SaveChangesAsync();
+                    await _salesContext.SaveChangesAsync(cancellationToken);
                     await _eventLogService.SaveEventAsync(@event, _salesContext.Database.CurrentTransaction.GetDbTransaction());
                 });
         }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using BackOffice.Sales.Data.Entities;
+using BackOffice.Sales.Features.CategoryFeature;
 
 namespace BackOffice.Sales.Mappings
 {
@@ -6,7 +8,7 @@ namespace BackOffice.Sales.Mappings
     {
         public CategoryProfile()
         {
-            CreateMap<Models.CategoryViewModel, Data.Entities.Category>();
+            CreateMap<CategoryViewModel, Category>();
         }
     }
 }

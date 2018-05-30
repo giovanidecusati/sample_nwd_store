@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Backoffice.Sales.IntegrationTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNET_CORE_ENVIRONMENT": "IntegratedTest"
+      }
+    }
+  }
+}
