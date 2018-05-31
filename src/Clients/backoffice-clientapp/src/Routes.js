@@ -1,16 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './pages/HomePage';
-import Products from './pages/ProductsPage';
+import HomePage from './pages/HomePage';
+import ProductsPage from './pages/ProductsPage';
 
-const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/products" component={Products} />
-    <Route exact path="/customers" component={Home} />
-    <Route exact path="/orders" component={Home} />
-    <Route exact path="/profile" component={Home} />
-  </Switch>
-);
+class Routes extends React.Component {
+  render () {
+    return (
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/products" component={ProductsPage}/>}/>
+        <Route exact path="/customers" component={HomePage} />
+        <Route exact path="/orders" component={HomePage} />
+        <Route exact path="/profile" component={HomePage} />
+      </Switch>)
+  }
+}
 
 export default Routes

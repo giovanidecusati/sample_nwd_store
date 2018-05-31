@@ -1,12 +1,73 @@
 import React, { Component } from 'react';
-import TopBar from '../components/TopBar';
-import Footer from '../components/Footer';
+import Topbar from '../components/common/Topbar';
+import Footer from '../components/common/Footer';
+
+const products = {
+  pageNumber: 1,
+  pageSize: 10,
+  totalNumberOfPages: 8,
+  totalNumberOfRecords: 80,
+  results: [
+    {
+      productId: 1,
+      productName: 'Produto1',
+      productPrice: 1.9,
+      productFeatured: true,
+      categoryName: 'Category',
+    },
+    {
+      productId: 2,
+      productName: 'Produto2',
+      productPrice: 1.91,
+      productFeatured: true,
+      categoryName: 'Category',
+    },
+    {
+      productId: 3,
+      productName: 'Produto3',
+      productPrice: 1.92,
+      productFeatured: true,
+      categoryName: 'Category',
+    },
+  ],
+};
+
+const ProductItem = props => {
+  return (
+    <tr>
+      <td>{props.item.productId}</td>
+      <td>{props.item.productName}</td>
+      <td>{props.item.productPrice}</td>
+      <td>{props.item.productFeatured ? 'true' : 'false'}</td>
+      <td>{props.item.categoryName}</td>
+      <td className="is-link is-icon">
+        <a className="button is-success is-outlined is-pulled-right">
+          <span>Edit</span>
+          <span className="icon is-small">
+            <i className="fa fa-pencil-square-o" />
+          </span>
+        </a>
+
+        <a className="button is-danger is-outlined is-pulled-right">
+          <span>Delete</span>
+          <span className="icon is-small">
+            <i className="fa fa-times" />
+          </span>
+        </a>
+      </td>
+    </tr>
+  );
+};
 
 class ProductsPage extends Component {
+  constructor(props) {
+    super(props);    
+  }
+
   render() {
     return (
       <div>
-        <TopBar />
+        <Topbar />
         <section className="section">
           <div className="container">
             <nav className="panel">
@@ -31,15 +92,20 @@ class ProductsPage extends Component {
             <table className="table is-bordered is-striped is-narrow">
               <thead>
                 <tr>
+                  <th>Id</th>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>Stock</th>
-                  <th />
+                  <th>Featured</th>
+                  <th>Category</th>
+                  <th>
+                    <p className="has-text-centered">Actions</p>
+                  </th>
                 </tr>
               </thead>
+
               <tfoot>
                 <tr>
-                  <th style={{ colspan: '4' }}>
+                  <td colSpan="6">
                     <nav className="pagination is-centered">
                       <a className="pagination-previous">Previous</a>
                       <a className="pagination-next">Next page</a>
@@ -67,29 +133,14 @@ class ProductsPage extends Component {
                         </li>
                       </ul>
                     </nav>
-                  </th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <tr>
-                  <td />
-                  <td />
-                  <td />
-                  <td className="is-link is-icon">
-                    <a className="button is-success is-outlined">
-                      <span>Edit</span>
-                      <span className="icon is-small">
-                        <i className="fa fa-pencil-square-o" />
-                      </span>
-                    </a>
-                    <a className="button is-danger is-outlined">
-                      <span>Delete</span>
-                      <span className="icon is-small">
-                        <i className="fa fa-times" />
-                      </span>
-                    </a>
                   </td>
                 </tr>
+              </tfoot>
+
+              <tbody>
+                {products.results.map((item, i) => (
+                  <ProductItem key={item.productId} item={item} />
+                ))}
               </tbody>
             </table>
           </div>
