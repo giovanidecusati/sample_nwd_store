@@ -1,9 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BuildingBlock.Core.Paging
 {
     public class PagedResults<T>
     {
+        public PagedResults()
+        {
+
+        }
+
+        public PagedResults(int pageNumber, int pageSize, int totalNumberOfRecords, IEnumerable<T> results)
+        {
+            PageNumber = pageNumber;
+            PageSize = pageSize;
+            TotalNumberOfRecords = totalNumberOfRecords;
+            Results = results;
+            var pageCount = (double)totalNumberOfRecords / pageSize;
+            TotalNumberOfPages = (int)Math.Ceiling(pageCount);
+        }
+
         /// <summary>
         /// The page number this page represents.
         /// </summary>
@@ -23,11 +39,6 @@ namespace BuildingBlock.Core.Paging
         /// The total number of records available.
         /// </summary>
         public int TotalNumberOfRecords { get; set; }
-
-        /// <summary>
-        /// The URL to the next page - if null, there are no more pages.
-        /// </summary>
-        public string NextPageUrl { get; set; }
 
         /// <summary>
         /// The records this page represents.

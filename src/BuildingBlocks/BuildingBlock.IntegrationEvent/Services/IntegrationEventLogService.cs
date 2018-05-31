@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BuildingBlock.Core.IntegrationEvents;
+using System.Threading;
 
 namespace BuildingBlock.IntegrationEventLog.Services
 {
@@ -23,7 +24,7 @@ namespace BuildingBlock.IntegrationEventLog.Services
                     .Options);
         }
 
-        public Task SaveEventAsync(IntegrationEvent @event, DbTransaction transaction)
+        public Task SaveEventAsync(IntegrationEvent @event, DbTransaction transaction, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (transaction == null)
             {
@@ -33,12 +34,12 @@ namespace BuildingBlock.IntegrationEventLog.Services
             var eventLogEntry = new IntegrationEventLogEntry(@event);
 
             _integrationEventLogContext.Database.UseTransaction(transaction);
-            _integrationEventLogContext.IntegrationEventLogs.Add(eventLogEntry);
+            _integrationEventLogContext.IntegrationEventLogs.AddAsync(eventLogEntry, cancellationToken);
 
-            return _integrationEventLogContext.SaveChangesAsync();
+            return _integrationEventLogContext.SaveChangesAsync(cancellationToken);
         }
 
-        public Task MarkEventAsPublishedAsync(IntegrationEvent @event)
+        public Task MarkEventAsPublishedAsync(IntegrationEvent @event, CancellationToken cancellationToken = default(CancellationToken))
         {
             var eventLogEntry = _integrationEventLogContext.IntegrationEventLogs.Single(ie => ie.EventId == @event.Id);
             eventLogEntry.TimesSent++;
@@ -46,7 +47,7 @@ namespace BuildingBlock.IntegrationEventLog.Services
 
             _integrationEventLogContext.IntegrationEventLogs.Update(eventLogEntry);
 
-            return _integrationEventLogContext.SaveChangesAsync();
+            return _integrationEventLogContext.SaveChangesAsync(cancellationToken);
         }
     }
 }
