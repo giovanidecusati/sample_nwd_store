@@ -12,7 +12,7 @@ class Welcome extends Component {
                   className="button is-primary"
                   href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip"
                 >
-                  <span>Welcome, {/*this.state.user.name()*/}</span>
+                  <span>Welcome, {this.props.user}</span>
                 </a>
               </p>
 

@@ -18,7 +18,7 @@ class Topbar extends Component {
             <span />
           </div>
         </div>
-        <Menu {...this.props} />
+        <Menu user={this.props.user} />
       </nav>
     );
   }

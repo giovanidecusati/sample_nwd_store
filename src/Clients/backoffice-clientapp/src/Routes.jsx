@@ -11,22 +11,6 @@ import Footer from './components/common/Footer';
 //   console.log(authContext);
 // });
 
-const DefaultLayout = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      exact
-      path="/"
-      render={matchProps => (
-        <div>
-          <Topbar {...matchProps} />
-          <Component {...matchProps} />
-          <Footer />
-        </div>
-      )}
-    />
-  );
-};
-
 class Routes extends React.Component {
   constructor(props) {
     super(props);
@@ -35,15 +19,14 @@ class Routes extends React.Component {
 
   render() {
     return (
-      <Switch>
-        <DefaultLayout exact path="/" {...this.state} component={HomePage} />        
-        <DefaultLayout
-          exact
-          path="/products"
-          state={this.state}
-          component={ProductsPage}
-        />
-      </Switch>
+      <div>
+        <Topbar user={this.state.user.name} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/products" component={ProductsPage} />
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }
