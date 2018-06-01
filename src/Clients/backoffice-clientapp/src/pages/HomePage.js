@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Topbar from '../components/common/Topbar';
-import Footer from '../components/common/Footer';
 
 class HomePage extends Component {
   constructor(props) {
@@ -10,13 +8,9 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <Topbar user={this.state.user} />
-        <section className="section">
-          <div className="container" />
-        </section>
-        <Footer />
-      </div>
+      <section className="section">
+        <div className="container" />
+      </section>
     );
   }
 }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Topbar from '../components/common/Topbar';
-import Footer from '../components/common/Footer';
 
 const products = {
   pageNumber: 1,
@@ -60,14 +58,9 @@ const ProductItem = props => {
 };
 
 class ProductsPage extends Component {
-  constructor(props) {
-    super(props);    
-  }
-
   render() {
     return (
       <div>
-        <Topbar />
         <section className="section">
           <div className="container">
             <nav className="panel">
@@ -145,7 +138,6 @@ class ProductsPage extends Component {
             </table>
           </div>
         </section>
-        <Footer />
       </div>
     );
   }

@@ -7,7 +7,7 @@ class Topbar extends Component {
       <nav className="navbar is-mobile is-transparent is-primary is-small animated slideInDown">
         <div className="navbar-brand">
           <a className="navbar-item">
-            <img src="logo.png" width="120" height="34" alt="Northwind" />
+            <h3 className="title is-h3">Northwind</h3>
           </a>
           <div
             className="navbar-burger burger"
@@ -18,7 +18,7 @@ class Topbar extends Component {
             <span />
           </div>
         </div>
-        <Menu user={this.props} />
+        <Menu {...this.props} />
       </nav>
     );
   }

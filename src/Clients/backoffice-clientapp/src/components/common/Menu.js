@@ -34,7 +34,7 @@ class Menu extends Component {
             </div>
           </div>
         </div>
-        <Welcome user={this.props} />
+        <Welcome {...this.props} />
       </div>
     );
   }
