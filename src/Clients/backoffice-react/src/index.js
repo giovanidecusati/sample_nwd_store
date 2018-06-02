@@ -11,7 +11,6 @@ const render = Component =>
     document.getElementById('root')
   );
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 render(App);
 
 // Webpack Hot Module Replacement API
