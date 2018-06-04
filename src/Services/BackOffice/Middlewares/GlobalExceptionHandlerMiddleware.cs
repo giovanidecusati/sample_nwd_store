@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net;
 using Newtonsoft.Json;
 
-namespace BackOffice.Sales.Middlewares
+namespace BackOffice.Middlewares
 {
     public static class GlobalExceptionHandlerMiddleware
     {

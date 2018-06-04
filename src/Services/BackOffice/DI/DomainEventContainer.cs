@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 
-namespace BackOffice.Sales.DI
+namespace BackOffice.DI
 {
     public class DomainEventContainer : IContainer
     {

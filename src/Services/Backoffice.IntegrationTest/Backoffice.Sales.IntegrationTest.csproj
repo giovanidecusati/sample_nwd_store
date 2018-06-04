@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <ProjectGuid>{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C848}</ProjectGuid>
+    <ProjectGuid>{88FF7A0C-5919-4537-9DD8-425649CE39A7}</ProjectGuid>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Services\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj" />
-    <ProjectReference Include="..\..\Services\BackOffice.Sales\BackOffice.Sales.csproj" />
+    <ProjectReference Include="..\BackOffice\BackOffice.csproj" />
   </ItemGroup>
 
   <ItemGroup>

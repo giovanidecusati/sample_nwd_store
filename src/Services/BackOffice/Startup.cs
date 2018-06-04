@@ -1,7 +1,7 @@
-﻿using BackOffice.Sales.Data.Contexts;
+﻿using BackOffice.Middlewares;
+using BackOffice.Runtimes;
+using BackOffice.Sales.Data.Contexts;
 using BackOffice.Sales.Mappings;
-using BackOffice.Sales.Middlewares;
-using BackOffice.Sales.Runtimes;
 using BackOffice.Sales.Services;
 using BuildingBlock.IntegrationEventLog;
 using BuildingBlock.IntegrationEventLog.Services;

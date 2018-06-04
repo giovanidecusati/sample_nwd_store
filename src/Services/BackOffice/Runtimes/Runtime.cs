@@ -1,4 +1,4 @@
-﻿namespace BackOffice.Sales.Runtimes
+﻿namespace BackOffice.Runtimes
 {
     public static class Runtime
     {
