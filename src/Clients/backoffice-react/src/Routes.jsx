@@ -16,12 +16,6 @@ const ProductsPage = importedComponent(() => import('./pages/ProductsPage'), {
   LoadingComponent: Loading,
 });
 
-// import { runWithAdal } from 'react-adal';
-// import { authContext } from './services/AuthService';
-// runWithAdal(authContext, () => {
-//   console.log(authContext);
-// });
-
 class Routes extends React.Component {
   constructor(props) {
     super(props);

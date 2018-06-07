@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import AdalService from '../../services/AdalService';
 
 class Welcome extends Component {
+  constructor(props) {
+    super(props);
+
+    adalService = new AdalService();
+  }
+
   render() {
     return (
       <div id="navbarExampleTransparentExample" className="navbar-menu">

@@ -31,6 +31,7 @@
   "dependencies": {
     "cross-env": "^5.1.6",
     "postcss-loader": "^2.1.5",
+    "react-adal": "^0.4.18",
     "react-delay-render": "^0.1.2",
     "react-hot-loader": "^4.2.0",
     "react-imported-component": "^4.4.1",
