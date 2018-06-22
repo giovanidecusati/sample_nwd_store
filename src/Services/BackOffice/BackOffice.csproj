@@ -36,7 +36,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlock.Core\BuildingBlock.Core.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlock.IntegrationEvent\BuildingBlock.IntegrationEventLog.csproj" />
-    <ProjectReference Include="..\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj" />
+    <ProjectReference Include="..\..\Contracts\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj" />
   </ItemGroup>
   
 </Project>

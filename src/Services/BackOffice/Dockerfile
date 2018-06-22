@@ -1,14 +1,15 @@
-FROM microsoft/aspnetcore:2.0 AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR .
-COPY ./BackOffice.csproj BackOffice/
-RUN dotnet restore BackOffice/BackOffice.csproj
+COPY ./src/BuildingBlocks/ BuildingBlocks/
+COPY ./src/Services/BackOffice Services/BackOffice
+COPY ./src/Contracts/BackOffice.Sales.Contracts Contracts/BackOffice.Sales.Contracts
+RUN dotnet restore Services/BackOffice/BackOffice.csproj
 
-COPY . .
-WORKDIR .
+WORKDIR ./Services/BackOffice
 RUN dotnet build BackOffice.csproj -c Release -o /app
 
 FROM build AS publish
@@ -17,4 +18,4 @@ RUN dotnet publish BackOffice.csproj -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Nwd.BackOffice.dll"]
+ENTRYPOINT ["dotnet", "BackOffice.dll"]

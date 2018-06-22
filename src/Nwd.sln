@@ -11,15 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{25
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlock.IntegrationEventLog", "BuildingBlocks\BuildingBlock.IntegrationEvent\BuildingBlock.IntegrationEventLog.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C845}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commerce.Catalogs", "Services\Commerce.Sales\Commerce.Catalogs.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commerce.Catalogs", "Services\Commerce.Catalogs\Commerce.Catalogs.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C848}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5CEE8B6-9172-486F-A84D-D7F0807AA9E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice.Sales.Contracts", "Services\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C847}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice.Sales.Contracts", "Contracts\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C847}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backoffice.Sales.IntegrationTest", "Services\Backoffice.IntegrationTest\Backoffice.Sales.IntegrationTest.csproj", "{88FF7A0C-5919-4537-9DD8-425649CE39A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backoffice.Sales.IntegrationTest", "Tests\Backoffice.IntegrationTest\Backoffice.Sales.IntegrationTest.csproj", "{88FF7A0C-5919-4537-9DD8-425649CE39A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice", "Services\BackOffice\BackOffice.csproj", "{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C846}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{FFE7B8F9-1B35-4B02-B660-81859E48003D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,7 +61,7 @@ Global
 		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C844} = {62B1964F-B012-4138-8D2C-35B1A96EDB79}
 		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C845} = {62B1964F-B012-4138-8D2C-35B1A96EDB79}
 		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C848} = {255E2CD7-3E04-4ABC-807E-FBCE7A077843}
-		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C847} = {255E2CD7-3E04-4ABC-807E-FBCE7A077843}
+		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C847} = {FFE7B8F9-1B35-4B02-B660-81859E48003D}
 		{88FF7A0C-5919-4537-9DD8-425649CE39A7} = {C5CEE8B6-9172-486F-A84D-D7F0807AA9E2}
 		{E2CEBBAF-6DF7-41E9-815D-9AD4CF90C846} = {255E2CD7-3E04-4ABC-807E-FBCE7A077843}
 	EndGlobalSection

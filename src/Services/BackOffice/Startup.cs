@@ -47,7 +47,7 @@ namespace BackOffice.Sales
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, IApplicationLifetime applicationLifetime)
         {
             // Azure Active Directory Authentication
             services.AddAuthentication(sharedOptions =>
@@ -94,24 +94,26 @@ namespace BackOffice.Sales
 
             // Add RabittMq Settings
             services.AddSingleton(service =>
-           {
-               var settings = Configuration.GetSection("RabbitMqSettings");
-               var bus = Bus.Factory.CreateUsingRabbitMq(cfg =>
-               {
-                   cfg.ExchangeType = ExchangeType.Direct;
-                   cfg.Durable = true;
-                   cfg.AutoDelete = false;
-                   cfg.Host(new Uri(settings.GetValue<string>("RabbitMqUri")), host =>
-                   {
-                       host.Username(settings.GetValue<string>("UserName"));
-                       host.Password(settings.GetValue<string>("Password"));
-                   });
-               });
+            {
+                var settings = Configuration.GetSection("RabbitMqSettings");
+                var bus = Bus.Factory.CreateUsingRabbitMq(cfg =>
+                {
+                    cfg.ExchangeType = ExchangeType.Direct;
+                    cfg.Durable = true;
+                    cfg.AutoDelete = false;
+                    cfg.Host(new Uri(settings.GetValue<string>("RabbitMqUri")), host =>
+                    {
+                        host.Username(settings.GetValue<string>("UserName"));
+                        host.Password(settings.GetValue<string>("Password"));
+                    });
+                });
 
-               TaskUtil.Await(() => bus.StartAsync());
+                applicationLifetime.ApplicationStopped.Register(bus.Stop);
 
-               return bus;
-           });
+                TaskUtil.Await(() => bus.StartAsync());
+
+                return bus;
+            });
 
             services.AddTransient<Func<DbConnection, IntegrationEventLogService>>(
                sp => (DbConnection c) => new IntegrationEventLogService(c));

@@ -19,12 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Services\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj" />
-    <ProjectReference Include="..\BackOffice\BackOffice.csproj" />
+    <Folder Include="Scenarios\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scenarios\" />
+    <ProjectReference Include="..\..\Contracts\BackOffice.Sales.Contracts\BackOffice.Sales.Contracts.csproj" />
+    <ProjectReference Include="..\..\Services\BackOffice\BackOffice.csproj" />
   </ItemGroup>
 
 </Project>
