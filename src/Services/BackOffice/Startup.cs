@@ -28,6 +28,7 @@ namespace BackOffice.Sales
     public class Startup
     {
         private IConfigurationRoot Configuration { get; }
+        private IApplicationLifetime ApplicationLifetime { get; set; }
 
         public Startup(IHostingEnvironment env)
         {
@@ -47,7 +48,7 @@ namespace BackOffice.Sales
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services, IApplicationLifetime applicationLifetime)
+        public void ConfigureServices(IServiceCollection services)
         {
             // Azure Active Directory Authentication
             services.AddAuthentication(sharedOptions =>
@@ -83,10 +84,10 @@ namespace BackOffice.Sales
             MapperExtension.RegisterProfiles();
 
             // Add DbContext
-            services.AddDbContextPool<IntegrationEventLogContext>(options =>
+            services.AddDbContext<IntegrationEventLogContext>(options =>
                 options.UseSqlServer(Runtime.ConnectionString));
 
-            services.AddDbContextPool<SalesDbContext>(options =>
+            services.AddDbContext<SalesDbContext>(options =>
                 options.UseSqlServer(Runtime.ConnectionString));
 
             // Add Configuration
@@ -108,7 +109,7 @@ namespace BackOffice.Sales
                     });
                 });
 
-                applicationLifetime.ApplicationStopped.Register(bus.Stop);
+                ApplicationLifetime.ApplicationStopped.Register(bus.Stop);
 
                 TaskUtil.Await(() => bus.StartAsync());
 
@@ -122,8 +123,9 @@ namespace BackOffice.Sales
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime applicationLifetime)
         {
+            ApplicationLifetime = applicationLifetime;
             app.UseAuthentication();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.

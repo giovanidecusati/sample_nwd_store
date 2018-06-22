@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore;
+﻿using BackOffice.Sales.Data.Contexts;
+using BuildingBlock.IntegrationEventLog;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using BackOffice.Sales.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackOffice.Sales
 {
@@ -8,12 +10,21 @@ namespace BackOffice.Sales
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args)
-               .MigrateDbContext<SalesDbContext>((salesContext, logger) =>
-               {
-                   SalesDbContextSeed.SeedAsync(salesContext, logger).Wait();
-               })
-              .Run();
+            var host = BuildWebHost(args);
+
+            host.MigrateDbContext<IntegrationEventLogContext>((integrationEventLogContext, logger) =>
+            {
+                integrationEventLogContext.Database.EnsureCreated();
+                integrationEventLogContext.Database.MigrateAsync().Wait();
+            });
+
+            host.MigrateDbContext<SalesDbContext>((salesContext, logger) =>
+            {
+                salesContext.Database.Migrate();
+                SalesDbContextSeed.SeedAsync(salesContext, logger).Wait();
+            });
+
+            host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
