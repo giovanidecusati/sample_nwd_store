@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using BuildingBlock.Core.Paging;
 using Commerce.Catalogs.Entities;
 
 namespace Commerce.Catalogs.Repositories
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<Product>> FindProductsByFilterAsync(string filter, int page, int pageSize, string orderBy, bool ascending);
-        Task<IEnumerable<Product>> GetFeaturedAsync(int page, int pageSize, string orderBy, bool ascending);
-        Task<Product> GetProductByIdAsync(int productId);
-        Task SaveAsync(Product entity);
+        Task<IEnumerable<Product>> FindProductsByFilterAsync(PagedRequest pagedRequest, string filter, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<Product>> GetFeaturedAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default(CancellationToken));
+        Task<Product> GetProductByIdAsync(int productId, CancellationToken cancellationToken = default(CancellationToken));
+        Task SaveAsync(Product entity, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

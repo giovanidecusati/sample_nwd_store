@@ -3,6 +3,7 @@ using BackOffice.Sales.Data.Contexts;
 using BackOffice.Sales.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BackOffice.Sales.Features.CategoryFeature
@@ -18,7 +19,7 @@ namespace BackOffice.Sales.Features.CategoryFeature
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(CategoryViewModel model)
+        public async Task<IActionResult> Post(CategoryViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
@@ -32,43 +33,43 @@ namespace BackOffice.Sales.Features.CategoryFeature
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(CategoryViewModel model)
+        public async Task<IActionResult> Put(CategoryViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
 
-            var category = await _context.Categories.FirstOrDefaultAsync(p => p.Id == model.Id);
+            var category = await _context.Categories.FirstOrDefaultAsync(p => p.Id == model.Id, cancellationToken);
 
             if (category == null)
                 return NotFound();
 
             category = Mapper.Map<CategoryViewModel, Category>(model);
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return Ok();
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
         {
-            var category = await _context.Categories.FirstOrDefaultAsync(p => p.Id == id);
+            var category = await _context.Categories.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
             if (category == null)
                 return NotFound();
 
             _context.Remove(category);
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return Ok();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(int id, CancellationToken cancellationToken)
         {
             var category = await _context.Categories.AsNoTracking()
-                .FirstOrDefaultAsync(p => p.Id == id);
+                .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
             if (category == null)
                 return NotFound();

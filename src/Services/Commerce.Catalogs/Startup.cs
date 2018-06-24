@@ -14,6 +14,8 @@ using Commerce.Catalogs.Middlewares;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.Text;
+using System.Diagnostics;
 
 namespace Commerce.Catalogs
 {
@@ -65,6 +67,8 @@ namespace Commerce.Catalogs
             {
                 var node = new Uri(Configuration.GetSection("ElasticsearchSettings").Value);
                 var esSettings = new ConnectionSettings(node);
+                esSettings.MapIndexes();
+                esSettings.OnRequestCompleted(details => Debug.WriteLine(details.DebugInformation));
                 var client = new ElasticClient(esSettings);
                 return client;
             });

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BuildingBlock.Core.Paging;
 using Commerce.Catalogs.Repositories;
-using System;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Commerce.Catalogs.Controllers
@@ -16,9 +17,9 @@ namespace Commerce.Catalogs.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int productId)
+        public async Task<IActionResult> Get(int productId, CancellationToken cancellationToken)
         {
-            var result = await _productRepository.GetProductByIdAsync(productId);
+            var result = await _productRepository.GetProductByIdAsync(productId, cancellationToken);
             if (result == null)
                 return NotFound();
 
@@ -26,9 +27,15 @@ namespace Commerce.Catalogs.Controllers
         }
 
         [HttpGet("featured")]
-        public async Task<IActionResult> GetFeatured(int page, int pageSize, string orderBy, bool ascending)
+        public async Task<IActionResult> GetByFeatured(int pageNumber, int pageSize, CancellationToken cancellationToken)
         {
-            return Ok(await _productRepository.GetFeaturedAsync(page, pageSize, orderBy, ascending));
+            return Ok(await _productRepository.GetFeaturedAsync(pageNumber, pageSize, cancellationToken));
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> GetByFilter(PagedRequest pagedRequest, string filter, CancellationToken cancellationToken)
+        {
+            return Ok(await _productRepository.FindProductsByFilterAsync(pagedRequest, filter, cancellationToken));
         }
     }
 }

@@ -29,7 +29,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(ProductViewModel model, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IActionResult> Post(ProductViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
@@ -58,7 +58,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(ProductViewModel model, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IActionResult> Put(ProductViewModel model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
@@ -76,7 +76,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
         {
             var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
@@ -91,7 +91,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int id, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IActionResult> Get(int id, CancellationToken cancellationToken)
         {
             var product = await _context.Products.AsNoTracking()
                 .Include(p => p.Category)
@@ -103,23 +103,18 @@ namespace BackOffice.Sales.Features.ProductFeature
             return Ok(Mapper.Map<ProductViewModel>(product));
         }
 
-        [HttpGet("{pageNumber:int}{pageSize:int}{orderBy:string}{ascending:bool}{productName:string}")]
-        public async Task<IActionResult> Get(
-            int pageNumber,
-            int pageSize,
-            string orderBy,
-            bool ascending,
-            string productName,
-            CancellationToken cancellationToken = default(CancellationToken))
+        [HttpGet]
+        [Route("search")]
+        public async Task<IActionResult> List(PagedRequest pagedRequest, string productNameFilter, CancellationToken cancellationToken)
         {
             var query = _context.Products.AsNoTracking()
                 .Include(p => p.Category)
-                .Where(p => p.Name.Contains(productName) || string.IsNullOrEmpty(productName));
+                .Where(p => p.Name.Contains(productNameFilter) || string.IsNullOrEmpty(productNameFilter));
 
             var totalNumberOfRecords = await query.CountAsync(cancellationToken);
 
-            var results = await query.Skip(pageNumber * pageSize)
-                .Take(pageSize)
+            var results = await query.Skip(pagedRequest.PageNumber * pagedRequest.PageSize)
+                .Take(pagedRequest.PageSize)
                 .Select(p => new ProductListViewModel()
                 {
                     CategoryName = p.Category.Name,
@@ -132,8 +127,8 @@ namespace BackOffice.Sales.Features.ProductFeature
 
             var result =
                 new PagedResults<ProductListViewModel>(
-                    pageNumber,
-                    pageSize,
+                    pagedRequest.PageNumber,
+                    pagedRequest.PageSize,
                     totalNumberOfRecords,
                     results);
 

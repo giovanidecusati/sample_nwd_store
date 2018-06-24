@@ -29,6 +29,7 @@ namespace BackOffice.Sales
     {
         private IConfigurationRoot Configuration { get; }
         private IApplicationLifetime ApplicationLifetime { get; set; }
+        private IHostingEnvironment HostingEnvironment { get; }
 
         public Startup(IHostingEnvironment env)
         {
@@ -44,13 +45,14 @@ namespace BackOffice.Sales
             }
 
             Configuration = configurationBuilder.Build();
+            HostingEnvironment = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // Azure Active Directory Authentication
+            // Azure Active Directory Authentication            
             services.AddAuthentication(sharedOptions =>
             {
                 sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -60,10 +62,14 @@ namespace BackOffice.Sales
             // MVC
             services.AddMvc(setup =>
             {
-                var policy = new AuthorizationPolicyBuilder()
-                .RequireAuthenticatedUser()
-                .Build();
-                setup.Filters.Add(new AuthorizeFilter(policy));
+                if (!HostingEnvironment.IsDevelopment())
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                        .RequireAuthenticatedUser()
+                        .Build();
+
+                    setup.Filters.Add(new AuthorizeFilter(policy));
+                }
             });
 
             // Compression
@@ -118,7 +124,9 @@ namespace BackOffice.Sales
 
             services.AddTransient<Func<DbConnection, IntegrationEventLogService>>(
                sp => (DbConnection c) => new IntegrationEventLogService(c));
+
             services.AddTransient<IntegrationEventLogService>();
+
             services.AddTransient<IProductIntegrationEventService, ProductIntegrationEventService>();
         }
 
@@ -135,7 +143,7 @@ namespace BackOffice.Sales
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind Commerce Web API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind BackOffice Web API v1");
                 c.RoutePrefix = string.Empty;
             });
 
