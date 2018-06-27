@@ -29,7 +29,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(ProductViewModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> Post(ProductViewModel model, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
@@ -58,7 +58,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(ProductViewModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> Put(ProductViewModel model, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
@@ -76,7 +76,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken = default(CancellationToken))
         {
             var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
@@ -91,7 +91,7 @@ namespace BackOffice.Sales.Features.ProductFeature
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(int id, CancellationToken cancellationToken = default(CancellationToken))
         {
             var product = await _context.Products.AsNoTracking()
                 .Include(p => p.Category)
@@ -105,7 +105,7 @@ namespace BackOffice.Sales.Features.ProductFeature
 
         [HttpGet]
         [Route("search")]
-        public async Task<IActionResult> List(PagedRequest pagedRequest, string productNameFilter, CancellationToken cancellationToken)
+        public async Task<IActionResult> List(PagedRequest pagedRequest, string productNameFilter, CancellationToken cancellationToken = default(CancellationToken))
         {
             var query = _context.Products.AsNoTracking()
                 .Include(p => p.Category)
