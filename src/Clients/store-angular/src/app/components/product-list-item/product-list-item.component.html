@@ -1,0 +1,23 @@
+<div class="column">
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-square">
+        <img [src]='product.imageUrl' [alt]='product.productName'>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <a [routerLink]="['/products/', product.productUrl]">{{product.productName}}</a>
+        <br/>
+        <div>{{product.price | currency:'AUD':true:'1.2-2'}}</div>
+        <hr/>
+        <app-rating></app-rating>
+        <hr/>
+        <a class="button is-primary is-rounded">
+          Add to cart
+          <div class="fas fa-shopping-cart"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

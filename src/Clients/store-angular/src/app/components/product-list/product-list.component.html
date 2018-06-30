@@ -1,0 +1,9 @@
+<div class="container is-fluid">
+  <div class="columns is-multiline" *ngIf="products && products.length">
+    <ng-container *ngFor="let product of products; let i = index">
+      <!-- <div class="column"> -->
+      <app-product-list-item [product]='product'></app-product-list-item>
+      <!-- </div> -->
+    </ng-container>
+  </div>
+</div>
