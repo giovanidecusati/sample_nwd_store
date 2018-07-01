@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuardService } from '../../../services/auth-guard.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,15 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./topbar.component.css'],
 })
 export class TopbarComponent implements OnInit {
-  constructor(private _router: Router) {}
+
+  constructor(
+    private _router: Router,
+    public authService: AuthGuardService
+  ) {}
 
   ngOnInit() {}
 
   login(): void {
-    console.log('Redirect to login page.');
+    this._router.navigate(['login']);
   }
 
-  logout(): void {
-    this._router.navigate(['']);
+  logout(): void {    
+    this.authService.logout();
   }
 }

@@ -1,9 +1,12 @@
+<div class="has-text-centered">
+  <i class="fa fa-th" aria-hidden="true"></i>&nbsp;|
+  <i class="fa fa-list" aria-hidden="true"></i>
+</div>
+<br/>
 <div class="container is-fluid">
   <div class="columns is-multiline" *ngIf="products && products.length">
     <ng-container *ngFor="let product of products; let i = index">
-      <!-- <div class="column"> -->
       <app-product-list-item [product]='product'></app-product-list-item>
-      <!-- </div> -->
     </ng-container>
   </div>
 </div>

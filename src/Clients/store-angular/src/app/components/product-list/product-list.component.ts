@@ -10,10 +10,11 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
   @Output() products: IProductModel[];
 
-  constructor(private _productService: ProductService) {
-  }
+  constructor(private _productService: ProductService) {}
 
   ngOnInit() {
-    this.products = this._productService.getFeatured();
+    this._productService
+      .getFeatured()
+      .subscribe(products => (this.products = products));
   }
 }

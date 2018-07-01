@@ -1,0 +1,29 @@
+<div class="container has-text-centered">
+  <div class="column is-4 is-offset-4">
+    <div class="box">
+      <form [formGroup]="form" novalidate>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="login" placeholder="Your Email" autofocus="">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <input class="input" type="password" placeholder="Your Password">
+          </div>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+        <button class="button is-block is-info is-fullwidth" (click)="login()">Login</button>
+      </form>
+    </div>
+    <p class="has-text-grey">
+      <a [routerLink]="['/signup']">Sign Up</a> &nbsp;·&nbsp;
+      <a [routerLink]="['/password']">Forgot Password</a> &nbsp;·&nbsp;
+    </p>
+  </div>
+</div>

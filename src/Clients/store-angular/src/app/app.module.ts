@@ -18,6 +18,7 @@ import { RatingComponent } from './components/common/rating/rating.component';
 import { CategoriesPageComponent } from './pages/categories-page/categories-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ShoppingCartPageComponent } from './pages/shoppingcart-page/shoppingcart-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ShoppingCartPageComponent } from './pages/shoppingcart-page/shoppingcar
     RatingComponent,
     CategoriesPageComponent,
     ProductPageComponent,
-    ShoppingCartPageComponent
+    ShoppingCartPageComponent,
+    LoginPageComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, Routing],
   providers: [],

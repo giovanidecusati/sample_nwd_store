@@ -12,16 +12,10 @@ export class ProductService {
 
   constructor(private _http: HttpClient) {}
 
-  getFeatured(): Observable<IProductModel[]> {
-    return this._http.get<IProductModel[]>(this._urlBase).pipe(
+  getSearch(search: string): Observable<IProductModel[]> {
+    return this._http.get<IProductModel[]>(this._urlBase).pipe(      
       tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
-    );
-  }
-
-  getProductById(id: number): Observable<IProductModel> {
-    return this.getFeatured().pipe(
-      map((products: IProductModel[]) => products.find(p => p.productId === id))
     );
   }
 

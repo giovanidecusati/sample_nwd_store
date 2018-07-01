@@ -8,6 +8,7 @@ import { NotFoundPageComponent } from './pages/notfound-page/notfound-page.compo
 import { CategoriesPageComponent } from './pages/categories-page/categories-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ShoppingCartPageComponent } from './pages/shoppingcart-page/shoppingcart-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     component: ShoppingCartPageComponent,
     canActivate: [AuthGuardService],
   },
+  { path: 'login', component: LoginPageComponent },
   { path: 'not-found', component: NotFoundPageComponent },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
