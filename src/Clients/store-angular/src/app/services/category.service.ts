@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { ICategoryModel } from '../models/categoryModel';
 
 @Injectable({
@@ -16,6 +16,17 @@ export class CategoryService {
     return this._http
       .get<ICategoryModel[]>(this._urlBase)
       .pipe(catchError(this.handleError));
+  }
+
+  getCategoryByName(categoryName: string): Observable<ICategoryModel> {
+    return this._http
+      .get<ICategoryModel[]>(this._urlBase)
+      .pipe(catchError(this.handleError))
+      .pipe(
+        map((categories: ICategoryModel[]) =>
+          categories.find(c => c.categoryName === categoryName)
+        )
+      );
   }
 
   private handleError(err) {

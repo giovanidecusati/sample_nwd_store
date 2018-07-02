@@ -24,6 +24,14 @@ export class ProductService {
     );
   }
 
+  getProductByCategoryName(categoryName: string): Observable<IProductModel[]> {
+    return this.getFeatured().pipe(
+      map((products: IProductModel[]) =>
+        products.filter (p => p.categoryName === categoryName)
+      )
+    );
+  }
+
   private handleError(err) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
