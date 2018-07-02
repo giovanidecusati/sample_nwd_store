@@ -40,8 +40,8 @@
     "productPrice": 4.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=44",
     "productRating": 4,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Women's",
+    "categoryFriendlyName": "womens"
   },
   {
     "productId": 5,
@@ -51,8 +51,8 @@
     "productPrice": 5.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=5",
     "productRating": 5,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Women's",
+    "categoryFriendlyName": "womens"
   },
   {
     "productId": 6,
@@ -62,8 +62,8 @@
     "productPrice": 6.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=6",
     "productRating": 4,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Kids & Babies",
+    "categoryFriendlyName": "kids-and-babies"
   },
   {
     "productId": 7,
@@ -73,8 +73,8 @@
     "productPrice": 7.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=77",
     "productRating": 3,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Devices Cases",
+    "categoryFriendlyName": "devices-cases"
   },
   {
     "productId": 8,
@@ -84,8 +84,8 @@
     "productPrice": 8.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=8",
     "productRating": 2,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Devices Cases",
+    "categoryFriendlyName": "devices-cases"
   },
   {
     "productId": 9,
@@ -95,8 +95,8 @@
     "productPrice": 9.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=9",
     "productRating": 1,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Stickers",
+    "categoryFriendlyName": "stickers"
   },
   {
     "productId": 10,
@@ -106,8 +106,8 @@
     "productPrice": 10.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=100",
     "productRating": 2,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Greeting Cards",
+    "categoryFriendlyName": "greeting-cards"
   },
   {
     "productId": 11,
@@ -117,8 +117,8 @@
     "productPrice": 11.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=11",
     "productRating": 3,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Wall Art",
+    "categoryFriendlyName": "wall-art"
   },
   {
     "productId": 12,
@@ -128,8 +128,8 @@
     "productPrice": 12.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=12",
     "productRating": 4,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Home Decor",
+    "categoryFriendlyName": "home-decor"
   },
   {
     "productId": 13,
@@ -139,8 +139,8 @@
     "productPrice": 13.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=13",
     "productRating": 5,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Stationery",
+    "categoryFriendlyName": "stationery"
   },
   {
     "productId": 14,
@@ -150,8 +150,8 @@
     "productPrice": 14.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=14",
     "productRating": 4,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Bags",
+    "categoryFriendlyName": "bags"
   },
   {
     "productId": 15,
@@ -161,7 +161,7 @@
     "productPrice": 15.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=15",
     "productRating": 3,
-    "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryName": "Bags",
+    "categoryFriendlyName": "bags"
   }
 ]
