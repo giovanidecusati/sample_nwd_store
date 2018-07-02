@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SearchService } from '../../services/search.service';
+import { IProductModel } from '../../models/productModel';
 
 @Component({
   selector: 'app-search-result-page',
@@ -7,13 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-result-page.component.css'],
 })
 export class SearchResultPageComponent implements OnInit {
-  filterBy: string;
+  products: IProductModel[];
+  constructor(
+    private _route: ActivatedRoute,
+    private _searchService: SearchService
+  ) {}
 
-  constructor(private route: ActivatedRoute) {
-    route.queryParamMap.subscribe(
-      params => (this.filterBy = params.get("filterBy"))
+  ngOnInit() {
+    this._route.queryParamMap.subscribe(params =>
+      this._searchService
+        .performSearch(params.get('filterBy'))
+        .subscribe(products => (this.products = products))
     );
   }
-
-  ngOnInit() {}
 }

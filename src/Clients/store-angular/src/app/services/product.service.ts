@@ -24,10 +24,10 @@ export class ProductService {
     );
   }
 
-  getProductByCategoryName(categoryName: string): Observable<IProductModel[]> {
+  getProductByCategoryUri(categoryUri: string): Observable<IProductModel[]> {
     return this.getFeatured().pipe(
       map((products: IProductModel[]) =>
-        products.filter (p => p.categoryName === categoryName)
+        products.filter (p => p.categoryUri === categoryUri)
       )
     );
   }

@@ -1,3 +1,59 @@
-<p>
-  shoppingcart-page works!
-</p>
+<div class="columns">
+  <div class="column">
+  </div>
+  <div class="column">
+    <h1 class="title is-2">Shopping Cart</h1>
+    <hr/>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <abbr title="Position">Product</abbr>
+          </th>
+          <th>
+            <abbr title="Position">Quantity</abbr>
+          </th>
+          <th>
+            <abbr title="Position">Total</abbr>
+          </th>
+          <th>
+            <abbr title="Position">Action</abbr>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.itens">
+          <td>{{item.product.productName}}</td>
+          <td>
+            <input type="number" ng-value="[item.quantity]">
+          </td>
+          <td>{{item.total | currency:'AUD':true:'1.2-2'}}</td>
+          <td>
+            <a (click)="remove(item.product)">
+              <i class="fas fa-trash-alt"></i>
+            </a>&nbsp;|
+            <a (click)="update(item.product)">
+              <i class="fas fa-sync-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>
+            <abbr title="Position">Total</abbr>
+          </th>
+          <th>
+          </th>
+          <th>
+          </th>
+          <th>
+            <abbr title="Position">{{cart.total | currency:'AUD':true:'1.2-2'}}</abbr>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="column">
+  </div>
+</div>

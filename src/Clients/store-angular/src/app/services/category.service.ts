@@ -18,13 +18,13 @@ export class CategoryService {
       .pipe(catchError(this.handleError));
   }
 
-  getCategoryByName(categoryName: string): Observable<ICategoryModel> {
+  getCategoryByUri(categoryUri: string): Observable<ICategoryModel> {
     return this._http
       .get<ICategoryModel[]>(this._urlBase)
       .pipe(catchError(this.handleError))
       .pipe(
         map((categories: ICategoryModel[]) =>
-          categories.find(c => c.categoryName === categoryName)
+          categories.find(c => c.categoryUri === categoryUri)
         )
       );
   }

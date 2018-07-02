@@ -7,13 +7,13 @@
     </div>
     <div class="card-content">
       <div class="content">
-        <a [routerLink]="['/products/', product.productFriendlyName]">{{product.productName}}</a>
+        <a [routerLink]="['/products/', product.productUri]">{{product.productName}}</a>
         <br/>
         <div>{{product.price | currency:'AUD':true:'1.2-2'}}</div>
         <hr/>
         <app-rating></app-rating>
         <hr/>
-        <a class="button is-primary is-rounded">
+        <a class="button is-primary is-rounded" (click)="addToCard(product)">
           Add to cart
           <div class="fas fa-shopping-cart"></div>
         </a>

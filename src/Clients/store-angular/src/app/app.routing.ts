@@ -15,9 +15,9 @@ const appRoutes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'search', component: SearchResultPageComponent },
   { path: 'categories', component: CategoriesPageComponent },
-  { path: 'categories/:name', component: CategoriesPageComponent },
+  { path: 'categories/:uri', component: CategoriesPageComponent },
   { path: 'products', component: ProductPageComponent },
-  { path: 'products/:name', component: ProductPageComponent },
+  { path: 'products/:uri', component: ProductPageComponent },
   {
     path: 'shopping-cart',
     component: ShoppingCartPageComponent,

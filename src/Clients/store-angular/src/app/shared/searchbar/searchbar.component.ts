@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./searchbar.component.css'],
 })
 export class SearchBarComponent implements OnInit {
-  constructor(private _router: Router) {}
+  filterBy: string = ';';
+  constructor(private _router: Router, private _route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._route.queryParamMap.subscribe(
+      params => (this.filterBy = params.get('filterBy'))
+    );
+  }
 
   performFilter(filterBy: string): void {
     this._router.navigate(['search'], {

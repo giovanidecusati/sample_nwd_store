@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
 import { IProductModel } from '../../models/productModel';
@@ -21,14 +21,15 @@ export class CategoriesPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const categoryName = this._route.snapshot.paramMap.get('name');
+    let uri: string = '';
+    this._route.paramMap.subscribe(params => (uri = params.get('uri')));
 
     this._categoryService
-      .getCategoryByName(categoryName)
+      .getCategoryByUri(uri)
       .subscribe(category => (this.category = category));
 
     this._productService
-      .getProductByCategoryName(categoryName)
+      .getProductByCategoryUri(uri)
       .subscribe(products => (this.products = products));
   }
 }

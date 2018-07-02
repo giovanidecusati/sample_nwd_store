@@ -1,6 +1,6 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered" *ngFor="let category of categories">
-    <a class="navbar-item" [routerLink]="['/categories', category.categoryFriendlyName]">
+    <a class="navbar-item" [routerLink]="['/categories', category.categoryUri]">
       {{category.categoryName}}
     </a>
   </div>

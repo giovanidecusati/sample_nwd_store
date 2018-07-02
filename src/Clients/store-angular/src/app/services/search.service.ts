@@ -16,13 +16,12 @@ export class SearchService {
     var patt = new RegExp(filterBy, 'i');
     return this._http
       .get<IProductModel[]>(this._urlBase)
+      .pipe(catchError(this.handleError))
       .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
-        catchError(this.handleError)
-      )
-      .pipe(
-        map((products: IProductModel[]) =>
-          products.filter(p => p.productName.match(patt))
+        map(
+          (products: IProductModel[]) =>
+            products.filter(p => p.productName.match(patt)),
+          tap(data => console.log('All: ' + JSON.stringify(data)))
         )
       );
   }

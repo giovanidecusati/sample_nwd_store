@@ -2,10 +2,10 @@ export interface IProductModel {
   productId: number;
   productName: string;
   productDescription: string;
-  productFriendlyName: string;
+  productUri: string;
   productPrice: number;
   productImageUrl: string;
   productRating: number;
   categoryName: string;
-  categoryFriendlyName: string;
+  categoryUri: string;
 }

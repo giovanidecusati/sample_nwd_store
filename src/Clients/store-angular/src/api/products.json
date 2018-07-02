@@ -2,166 +2,166 @@
   {
     "productId": 1,
     "productName": "Product 1",
-    "productFriendlyName": "product-1",
+    "productUri": "product-1",
     "productDescription": "text",
     "productPrice": 1.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=10",
     "productRating": 2,
     "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryUri": "mens"
   },
   {
     "productId": 2,
     "productName": "Product 2",
-    "productFriendlyName": "product-3",
+    "productUri": "product-3",
     "productDescription": "text",
     "productPrice": 2.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=11",
     "productRating": 3,
     "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryUri": "mens"
   },
   {
     "productId": 3,
     "productName": "Product 3",
-    "productFriendlyName": "product-3",
+    "productUri": "product-3",
     "productDescription": "text",
     "productPrice": 3.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=33",
     "productRating": 3,
     "categoryName": "Men's",
-    "categoryFriendlyName": "mens"
+    "categoryUri": "mens"
   },
   {
     "productId": 4,
     "productName": "Product 4",
-    "productFriendlyName": "product-4",
+    "productUri": "product-4",
     "productDescription": "text",
     "productPrice": 4.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=44",
     "productRating": 4,
     "categoryName": "Women's",
-    "categoryFriendlyName": "womens"
+    "categoryUri": "womens"
   },
   {
     "productId": 5,
     "productName": "Product 5",
-    "productFriendlyName": "product-5",
+    "productUri": "product-5",
     "productDescription": "text",
     "productPrice": 5.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=5",
     "productRating": 5,
     "categoryName": "Women's",
-    "categoryFriendlyName": "womens"
+    "categoryUri": "womens"
   },
   {
     "productId": 6,
     "productName": "Product 6",
-    "productFriendlyName": "product-6",
+    "productUri": "product-6",
     "productDescription": "text",
     "productPrice": 6.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=6",
     "productRating": 4,
     "categoryName": "Kids & Babies",
-    "categoryFriendlyName": "kids-and-babies"
+    "categoryUri": "kids-and-babies"
   },
   {
     "productId": 7,
     "productName": "Product 7",
-    "productFriendlyName": "product-7",
+    "productUri": "product-7",
     "productDescription": "text",
     "productPrice": 7.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=77",
     "productRating": 3,
     "categoryName": "Devices Cases",
-    "categoryFriendlyName": "devices-cases"
+    "categoryUri": "devices-cases"
   },
   {
     "productId": 8,
     "productName": "Product 8",
-    "productFriendlyName": "product-8",
+    "productUri": "product-8",
     "productDescription": "text",
     "productPrice": 8.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=8",
     "productRating": 2,
     "categoryName": "Devices Cases",
-    "categoryFriendlyName": "devices-cases"
+    "categoryUri": "devices-cases"
   },
   {
     "productId": 9,
     "productName": "Product 9",
-    "productFriendlyName": "product-9",
+    "productUri": "product-9",
     "productDescription": "text",
     "productPrice": 9.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=9",
     "productRating": 1,
     "categoryName": "Stickers",
-    "categoryFriendlyName": "stickers"
+    "categoryUri": "stickers"
   },
   {
     "productId": 10,
     "productName": "Product 10",
-    "productFriendlyName": "product-10",
+    "productUri": "product-10",
     "productDescription": "text",
     "productPrice": 10.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=100",
     "productRating": 2,
     "categoryName": "Greeting Cards",
-    "categoryFriendlyName": "greeting-cards"
+    "categoryUri": "greeting-cards"
   },
   {
     "productId": 11,
     "productName": "Product 11",
-    "productFriendlyName": "product-11",
+    "productUri": "product-11",
     "productDescription": "text",
     "productPrice": 11.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=11",
     "productRating": 3,
     "categoryName": "Wall Art",
-    "categoryFriendlyName": "wall-art"
+    "categoryUri": "wall-art"
   },
   {
     "productId": 12,
     "productName": "Product 12",
-    "productFriendlyName": "product-12",
+    "productUri": "product-12",
     "productDescription": "text",
     "productPrice": 12.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=12",
     "productRating": 4,
     "categoryName": "Home Decor",
-    "categoryFriendlyName": "home-decor"
+    "categoryUri": "home-decor"
   },
   {
     "productId": 13,
     "productName": "Product 13",
-    "productFriendlyName": "product-13",
+    "productUri": "product-13",
     "productDescription": "text",
     "productPrice": 13.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=13",
     "productRating": 5,
     "categoryName": "Stationery",
-    "categoryFriendlyName": "stationery"
+    "categoryUri": "stationery"
   },
   {
     "productId": 14,
     "productName": "Product 14",
-    "productFriendlyName": "product-14",
+    "productUri": "product-14",
     "productDescription": "text",
     "productPrice": 14.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=14",
     "productRating": 4,
     "categoryName": "Bags",
-    "categoryFriendlyName": "bags"
+    "categoryUri": "bags"
   },
   {
     "productId": 15,
     "productName": "Product 15",
-    "productFriendlyName": "product-15",
+    "productUri": "product-15",
     "productDescription": "text",
     "productPrice": 15.99,
     "productImageUrl": "https://picsum.photos/200/300/?image=15",
     "productRating": 3,
     "categoryName": "Bags",
-    "categoryFriendlyName": "bags"
+    "categoryUri": "bags"
   }
 ]
