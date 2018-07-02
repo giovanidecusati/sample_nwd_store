@@ -2,12 +2,12 @@
   <div class="card">
     <div class="card-image">
       <figure class="image is-square">
-        <img [src]='product.imageUrl' [alt]='product.productName'>
+        <img [src]='product.productImageUrl' [alt]='product.productName'>
       </figure>
     </div>
     <div class="card-content">
       <div class="content">
-        <a [routerLink]="['/products/', product.productUrl]">{{product.productName}}</a>
+        <a [routerLink]="['/products/', product.productFriendlyName]">{{product.productName}}</a>
         <br/>
         <div>{{product.price | currency:'AUD':true:'1.2-2'}}</div>
         <hr/>

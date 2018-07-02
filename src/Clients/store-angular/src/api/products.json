@@ -2,136 +2,166 @@
   {
     "productId": 1,
     "productName": "Product 1",
-    "productUrl": "product-1",
-    "productFrendlyName": "text",
-    "price": 1.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=10",
-    "rating": 2
+    "productFriendlyName": "product-1",
+    "productDescription": "text",
+    "productPrice": 1.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=10",
+    "productRating": 2,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 2,
     "productName": "Product 2",
-    "productUrl": "product-3",
-    "productFrendlyName": "text",
-    "price": 2.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=11",
-    "rating": 3
+    "productFriendlyName": "product-3",
+    "productDescription": "text",
+    "productPrice": 2.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=11",
+    "productRating": 3,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 3,
     "productName": "Product 3",
-    "productUrl": "product-3",
-    "productFrendlyName": "text",
-    "price": 3.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=33",
-    "rating": 3
+    "productFriendlyName": "product-3",
+    "productDescription": "text",
+    "productPrice": 3.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=33",
+    "productRating": 3,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 4,
     "productName": "Product 4",
-    "productUrl": "product-4",
-    "productFrendlyName": "text",
-    "price": 4.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=44",
-    "rating": 4
+    "productFriendlyName": "product-4",
+    "productDescription": "text",
+    "productPrice": 4.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=44",
+    "productRating": 4,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 5,
     "productName": "Product 5",
-    "productUrl": "product-5",
-    "productFrendlyName": "text",
-    "price": 5.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=5",
-    "rating": 5
+    "productFriendlyName": "product-5",
+    "productDescription": "text",
+    "productPrice": 5.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=5",
+    "productRating": 5,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 6,
     "productName": "Product 6",
-    "productUrl": "product-6",
-    "productFrendlyName": "text",
-    "price": 6.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=6",
-    "rating": 4
+    "productFriendlyName": "product-6",
+    "productDescription": "text",
+    "productPrice": 6.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=6",
+    "productRating": 4,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 7,
     "productName": "Product 7",
-    "productUrl": "product-7",
-    "productFrendlyName": "text",
-    "price": 7.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=77",
-    "rating": 3
+    "productFriendlyName": "product-7",
+    "productDescription": "text",
+    "productPrice": 7.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=77",
+    "productRating": 3,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 8,
     "productName": "Product 8",
-    "productUrl": "product-8",
-    "productFrendlyName": "text",
-    "price": 8.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=8",
-    "rating": 2
+    "productFriendlyName": "product-8",
+    "productDescription": "text",
+    "productPrice": 8.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=8",
+    "productRating": 2,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 9,
     "productName": "Product 9",
-    "productUrl": "product-9",
-    "productFrendlyName": "text",
-    "price": 9.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=9",
-    "rating": 1
+    "productFriendlyName": "product-9",
+    "productDescription": "text",
+    "productPrice": 9.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=9",
+    "productRating": 1,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 10,
     "productName": "Product 10",
-    "productUrl": "product-10",
-    "productFrendlyName": "text",
-    "price": 10.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=100",
-    "rating": 2
+    "productFriendlyName": "product-10",
+    "productDescription": "text",
+    "productPrice": 10.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=100",
+    "productRating": 2,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 11,
     "productName": "Product 11",
-    "productUrl": "product-11",
-    "productFrendlyName": "text",
-    "price": 11.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=11",
-    "rating": 3
+    "productFriendlyName": "product-11",
+    "productDescription": "text",
+    "productPrice": 11.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=11",
+    "productRating": 3,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 12,
     "productName": "Product 12",
-    "productUrl": "product-12",
-    "productFrendlyName": "text",
-    "price": 12.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=12",
-    "rating": 4
+    "productFriendlyName": "product-12",
+    "productDescription": "text",
+    "productPrice": 12.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=12",
+    "productRating": 4,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 13,
     "productName": "Product 13",
-    "productUrl": "product-13",
-    "productFrendlyName": "text",
-    "price": 13.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=13",
-    "rating": 5
+    "productFriendlyName": "product-13",
+    "productDescription": "text",
+    "productPrice": 13.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=13",
+    "productRating": 5,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 14,
     "productName": "Product 14",
-    "productUrl": "product-14",
-    "productFrendlyName": "text",
-    "price": 14.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=14",
-    "rating": 4
+    "productFriendlyName": "product-14",
+    "productDescription": "text",
+    "productPrice": 14.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=14",
+    "productRating": 4,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   },
   {
     "productId": 15,
     "productName": "Product 15",
-    "productUrl": "product-15",
-    "productFrendlyName": "text",
-    "price": 15.99,
-    "imageUrl": "https://picsum.photos/200/300/?image=15",
-    "rating": 3
+    "productFriendlyName": "product-15",
+    "productDescription": "text",
+    "productPrice": 15.99,
+    "productImageUrl": "https://picsum.photos/200/300/?image=15",
+    "productRating": 3,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
   }
 ]

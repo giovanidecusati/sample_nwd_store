@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { IProductModel } from '../models/productModel';
+import { catchError } from 'rxjs/operators';
+import { ICategoryModel } from '../models/categoryModel';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  private _urlBase = './api/products.json';
+export class CategoryService {
+  private _urlBase = './api/categories.json';
 
   constructor(private _http: HttpClient) {}
 
-  getFeatured(): Observable<IProductModel[]> {
+  getCategories(): Observable<ICategoryModel[]> {
     return this._http
-      .get<IProductModel[]>(this._urlBase)
+      .get<ICategoryModel[]>(this._urlBase)
       .pipe(catchError(this.handleError));
-  }
-
-  getProductById(id: number): Observable<IProductModel> {
-    return this.getFeatured().pipe(
-      map((products: IProductModel[]) => products.find(p => p.productId === id))
-    );
   }
 
   private handleError(err) {

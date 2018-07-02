@@ -5,7 +5,7 @@
 <br/>
 <div class="container is-fluid">
   <div class="columns is-multiline" *ngIf="products && products.length">
-    <ng-container *ngFor="let product of products; let i = index">
+    <ng-container *ngFor="let product of products;">
       <app-product-list-item [product]='product'></app-product-list-item>
     </ng-container>
   </div>

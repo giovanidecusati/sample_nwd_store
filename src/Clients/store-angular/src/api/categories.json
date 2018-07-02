@@ -1,0 +1,57 @@
+[
+  {
+    "categoryId": 1,
+    "categoryName": "Men's",
+    "categoryFriendlyName": "mens"
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "Women's",
+    "categoryFriendlyName": "womens"
+  },
+  {
+    "categoryId": 3,
+    "categoryName": "Kids & Babies",
+    "categoryFriendlyName": "kids-and-babies"
+  },
+  {
+    "categoryId": 4,
+    "categoryName": "Devices Cases",
+    "categoryFriendlyName": "devices-cases"
+  },
+  {
+    "categoryId": 5,
+    "categoryName": "Stickers",
+    "categoryFriendlyName": "stickers"
+  },
+  {
+    "categoryId": 6,
+    "categoryName": "Greeting Cards",
+    "categoryFriendlyName": "greeting-cards"
+  },
+  {
+    "categoryId": 7,
+    "categoryName": "Wall Art",
+    "categoryFriendlyName": "wall-art"
+  },
+  {
+    "categoryId": 8,
+    "categoryName": "Home Decor",
+    "categoryFriendlyName": "home-decor"
+  },
+  {
+    "categoryId": 9,
+    "categoryName": "Stationery",
+    "categoryFriendlyName": "stationery"
+  },
+  {
+    "categoryId": 10,
+    "categoryName": "Bags",
+    "categoryFriendlyName": "bags"
+  },
+  {
+    "categoryId": 11,
+    "categoryName": "Gifts",
+    "categoryFriendlyName": "gifts"
+  }
+]
