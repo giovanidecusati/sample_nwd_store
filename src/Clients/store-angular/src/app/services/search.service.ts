@@ -7,16 +7,24 @@ import { IProductModel } from '../models/productModel';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  private _urlBase = './assets/products.json';
+export class SearchService {
+  private _urlBase = './api/products.json';
 
   constructor(private _http: HttpClient) {}
 
-  getSearch(search: string): Observable<IProductModel[]> {
-    return this._http.get<IProductModel[]>(this._urlBase).pipe(      
-      tap(data => console.log('All: ' + JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+  performSearch(filterBy: string): Observable<IProductModel[]> {
+    var patt = new RegExp(filterBy, 'i');
+    return this._http
+      .get<IProductModel[]>(this._urlBase)
+      .pipe(
+        tap(data => console.log('All: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      )
+      .pipe(
+        map((products: IProductModel[]) =>
+          products.filter(p => p.productName.match(patt))
+        )
+      );
   }
 
   private handleError(err) {

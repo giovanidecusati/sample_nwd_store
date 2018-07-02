@@ -8,13 +8,12 @@ import { IProductModel } from '../models/productModel';
   providedIn: 'root',
 })
 export class ProductService {
-  private _urlBase = './assets/products.json';
+  private _urlBase = './api/products.json';
 
   constructor(private _http: HttpClient) {}
 
   getFeatured(): Observable<IProductModel[]> {
     return this._http.get<IProductModel[]>(this._urlBase).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }

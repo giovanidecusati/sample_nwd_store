@@ -9,9 +9,11 @@ import { CategoriesPageComponent } from './pages/categories-page/categories-page
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ShoppingCartPageComponent } from './pages/shoppingcart-page/shoppingcart-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'search', component: SearchResultPageComponent },
   { path: 'categories', component: CategoriesPageComponent },
   { path: 'categories/:name', component: CategoriesPageComponent },
   { path: 'products', component: ProductPageComponent },
