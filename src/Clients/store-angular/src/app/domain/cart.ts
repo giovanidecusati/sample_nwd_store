@@ -7,8 +7,10 @@ export class Cart implements IShoppingCartModel {
   itens: IShoppingCartItemModel[] = new Array<IShoppingCartItemModel>();
   total: number;
   constructor(shoppingCart: IShoppingCartModel) {
-    this.itens = shoppingCart.itens;
-    this.total = shoppingCart.total;
+    if (shoppingCart != null) {
+      this.itens = shoppingCart.itens;
+      this.total = shoppingCart.total;
+    }
   }
 
   addItem(product: IProductModel): void {
